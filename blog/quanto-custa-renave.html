@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quanto custa o RENAVE pra sua loja: taxa, certificado e integrador</title>
+<meta name="description" content="Não existe mensalidade única do governo. Veja como se divide o custo real do RENAVE: taxa por movimentação, certificado digital, integrador e taxas do Detran.">
+<meta property="og:title" content="Quanto custa o RENAVE pra sua loja">
+<meta property="og:description" content="Taxa por movimentação, certificado digital e mensalidade do integrador: onde o dinheiro vai.">
+<meta property="og:type" content="article">
+<meta name="theme-color" content="#101215">
+<meta property="og:url" content="https://renave.ia.br/blog/quanto-custa-renave.html">
+<meta property="og:image" content="https://renave.ia.br/og-artigo.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Guia RENAVE">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://renave.ia.br/blog/quanto-custa-renave.html">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --asfalto:#101215;
+  --asfalto-2:#171a1f;
+  --asfalto-3:#1e2228;
+  --linha:#2b3038;
+  --papel:#F5F2EA;
+  --papel-dim:#a8a49b;
+  --sinal:#FFB800;
+  --sinal-esc:#c78d00;
+  --alerta:#FF4D3D;
+
+  --display:'Anton',Impact,'Haettenschweiler','Arial Narrow Bold',sans-serif;
+  --corpo:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+
+  --max:1140px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--asfalto);
+  color:var(--papel);
+  font-family:var(--corpo);
+  font-size:17px;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+body::after{
+  content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.038;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+.hazard{
+  height:12px;
+  background:repeating-linear-gradient(-45deg,var(--sinal) 0 18px,var(--asfalto) 18px 36px);
+}
+.hazard--fina{height:6px;opacity:.75}
+
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-height:.96;text-transform:uppercase}
+h1{font-size:clamp(2.1rem,4.8vw,3.3rem)}
+p{max-width:62ch}
+a{color:inherit}
+
+.eyebrow{
+  font-family:var(--mono);font-size:.735rem;font-weight:600;
+  letter-spacing:.19em;text-transform:uppercase;color:var(--sinal);
+  display:flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:'';width:26px;height:2px;background:var(--sinal);flex:none}
+.lead{font-size:clamp(1.05rem,2vw,1.22rem);color:#d6d2c9;line-height:1.55}
+.dim{color:var(--papel-dim)}
+mark{background:var(--sinal);color:#0b0c0e;padding:0 .18em;font-weight:600}
+
+.hero{
+  position:relative;padding:0 0 44px;
+  background:
+    radial-gradient(1000px 520px at 78% -8%,rgba(255,184,0,.13),transparent 62%),
+    linear-gradient(180deg,#0c0e11 0%,var(--asfalto) 100%);
+  border-bottom:1px solid var(--linha);
+  overflow:hidden;
+}
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:22px 0 0;position:relative;z-index:2;
+}
+.by{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--papel-dim)}
+.by a{color:var(--papel-dim);text-decoration:none;border-bottom:1px dotted var(--linha);padding-bottom:1px;transition:color .2s,border-color .2s}
+.by a:hover{color:var(--sinal);border-color:var(--sinal)}
+.topbar .tel{font-family:var(--mono);font-size:.8rem;color:var(--papel-dim);text-decoration:none;transition:color .2s}
+.topbar .tel:hover{color:var(--sinal)}
+
+.hero-conteudo{position:relative;z-index:2;padding-top:clamp(34px,6vw,60px);max-width:760px}
+.hero h1{margin:16px 0 16px}
+
+section{padding:clamp(46px,7vw,76px) 0}
+
+.artigo{max-width:68ch}
+.artigo h2{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:.01em;font-size:clamp(1.4rem,3vw,1.9rem);margin:40px 0 14px;line-height:1.05}
+.artigo p{margin-bottom:16px;color:#d6d2c9;font-size:1.02rem;line-height:1.65}
+.artigo ul{list-style:none;margin:16px 0 20px 0}
+.artigo li{margin-bottom:11px;padding-left:26px;position:relative;color:#d6d2c9;max-width:64ch}
+.artigo li::before{content:'';position:absolute;left:0;top:.55em;width:14px;height:8px;border-left:2.5px solid var(--sinal);border-bottom:2.5px solid var(--sinal);transform:rotate(-45deg)}
+
+.custo-item{border-top:1px solid var(--linha);padding:22px 0}
+.custo-item:first-of-type{border-top:none;padding-top:6px}
+.custo-item .valor{font-family:var(--display);color:var(--sinal);font-size:clamp(1.5rem,3.4vw,2.1rem);text-transform:none;line-height:1;margin-bottom:8px}
+.custo-item p{color:#c3bfb6;font-size:.98rem;margin-bottom:0}
+
+.cta-box{background:var(--asfalto-2);border:1px solid var(--linha);padding:clamp(28px,4vw,40px);margin-top:48px}
+.cta-box h3{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:1.4rem;margin-bottom:12px}
+.cta-box p{color:#c3bfb6;font-size:.98rem;margin-bottom:20px}
+.cta-linha{display:flex;flex-wrap:wrap;gap:14px}
+.btn{
+  display:inline-flex;align-items:center;gap:11px;
+  padding:15px 26px;border:none;cursor:pointer;
+  font-family:var(--corpo);font-size:.96rem;font-weight:700;letter-spacing:.01em;
+  text-decoration:none;transition:transform .16s cubic-bezier(.2,.9,.3,1.2),box-shadow .16s;
+}
+.btn--sinal{background:var(--sinal);color:#0b0c0e;box-shadow:5px 5px 0 var(--sinal-esc)}
+.btn--sinal:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--sinal-esc)}
+.btn--ghost{background:transparent;color:var(--papel);border:1px solid var(--linha);box-shadow:none}
+.btn--ghost:hover{border-color:var(--sinal);color:var(--sinal);transform:translateY(-2px)}
+.btn svg{width:18px;height:18px;flex:none}
+
+footer{padding:52px 0 60px;border-top:1px solid var(--linha);font-size:.86rem;color:var(--papel-dim)}
+footer .cols{display:flex;justify-content:space-between;gap:34px;flex-wrap:wrap;align-items:flex-start}
+footer a{color:var(--papel-dim);text-decoration:none;border-bottom:1px solid transparent;transition:.2s}
+footer a:hover{color:var(--sinal);border-bottom-color:var(--sinal)}
+.aviso{
+  margin-top:32px;padding:18px 20px;border:1px dashed var(--linha);
+  font-size:.79rem;line-height:1.6;color:#8e8a82;max-width:none;
+}
+.aviso strong{color:var(--papel-dim)}
+
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.8,.3,1),transform .7s cubic-bezier(.2,.8,.3,1)}
+.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="hazard"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="topbar">
+      <div class="by">Guia RENAVE · <a href="https://ssys.ia.br" target="_blank" rel="noopener">by SSYS.ia.br</a></div>
+      <a class="tel" href="index.html">&larr; Blog</a>
+    </div>
+    <div class="hero-conteudo">
+      <div class="eyebrow">Blog RENAVE</div>
+      <h1>Quanto custa o RENAVE pra sua loja.</h1>
+      <p class="lead">
+        Taxa por movimentação, certificado digital e mensalidade do integrador: onde o
+        dinheiro vai — e como não existe uma tabela única do governo.
+      </p>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <article class="artigo rv">
+      <p>
+        Uma dúvida recorrente de quem vai se credenciar: "quanto vou pagar de RENAVE por
+        mês?" A resposta curta é que não existe uma mensalidade única do governo. O custo
+        real se distribui em quatro frentes diferentes, e vale entender cada uma antes de
+        negociar com um integrador.
+      </p>
+    </article>
+
+    <div class="rv">
+      <div class="custo-item">
+        <div class="valor">~R$ 4,43 por movimentação</div>
+        <p>
+          Taxa de transação cobrada pelo Serpro no RENAVE Usados, por movimentação de
+          entrada ou de saída de estoque. Um veículo que entra e depois é vendido gera,
+          portanto, <strong>duas cobranças</strong>. É um valor levantado na Central de
+          Ajuda do Serpro — confirme o valor vigente no ato da contratação.
+        </p>
+      </div>
+      <div class="custo-item">
+        <div class="valor">Certificado e-CNPJ A1</div>
+        <p>
+          Custo de emissão junto a uma Autoridade Certificadora ICP-Brasil, pago pela sua
+          loja. Validade típica de 12 meses — é uma renovação anual a considerar no
+          orçamento, e vale colocar no calendário: se o certificado vencer sem você
+          perceber, as chamadas à API param de autenticar e a operação trava até a
+          renovação.
+        </p>
+      </div>
+      <div class="custo-item">
+        <div class="valor">Mensalidade do integrador</div>
+        <p>
+          Cobrada pela empresa de software que fornece a interface pra você operar o
+          RENAVE no dia a dia. Não há tabela oficial: é preço de mercado, definido por
+          cada integrador — por isso vale comparar mais de uma opção.
+        </p>
+      </div>
+      <div class="custo-item">
+        <div class="valor">Taxas do Detran estadual</div>
+        <p>
+          Conforme cada UF. Algumas taxas de transferência podem, inclusive, cair pra
+          veículos que passam pelo RENAVE, dependendo do estado.
+        </p>
+      </div>
+    </div>
+
+    <article class="artigo rv">
+      <h2>Um exemplo pra colocar número na conta</h2>
+      <p>
+        Pega uma loja que compra e vende 30 carros por mês, sem muita consignação: são
+        30 entradas e 30 saídas, ou seja, 60 movimentações. Multiplicando 60 × R$ 4,43,
+        a taxa do Serpro fica em torno de R$ 266 no mês — um valor pequeno perto do
+        restante da conta. O grosso do custo tende a estar na mensalidade do integrador,
+        que varia bem mais de fornecedor pra fornecedor do que a taxa fixa do governo.
+      </p>
+      <p>
+        Se a loja trabalha muito com consignação, a conta muda: cada veículo consignado
+        que entra, eventualmente volta pro dono e entra de novo em outra loja gera mais
+        de uma movimentação por carro — então vale contar movimentações, não só vendas
+        fechadas.
+      </p>
+
+      <h2>Como estimar o custo real da sua loja</h2>
+      <p>
+        Como o custo por transação é variável, o jeito mais direto de saber quanto vai
+        pesar no seu caixa é mapear seu volume mensal de entradas e saídas — e não só o
+        número de vendas. Um veículo em consignação que entra, sai, retorna e sai de novo
+        gera mais movimentações do que uma compra e venda direta.
+      </p>
+      <p>
+        Com esse número em mãos, fica mais fácil negociar com o integrador e decidir se
+        vale a pena um plano com volume maior de transações incluídas ou um modelo
+        pay-as-you-go. E vale lembrar do outro lado da conta: o tempo que deixa de ir pra
+        despachante, cartório e fila de Detran também é economia — só não aparece como
+        linha de custo mensal.
+      </p>
+    </article>
+
+    <div class="cta-box rv">
+      <h3>Quer ajuda pra estimar o custo da sua loja?</h3>
+      <p>Manda seu volume médio de entradas e saídas no WhatsApp e a gente ajuda a pensar a conta. Sem custo, sem venda de sistema.</p>
+      <div class="cta-linha">
+        <a class="btn btn--sinal" href="#" data-zap>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.5-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+          Tirar dúvida no WhatsApp
+        </a>
+        <a class="btn btn--ghost" href="../guia.html">Ver o guia completo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hazard hazard--fina"></div>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="eyebrow">Blog RENAVE</div>
+        <p style="margin-top:10px;font-size:.85rem">Conteúdo sobre o RENAVE pra lojas de repasse.<br>Belo Horizonte · Contagem · Minas Gerais</p>
+      </div>
+      <div>
+        <a href="index.html">Blog</a> &nbsp;·&nbsp;
+        <a href="../index.html">Início</a> &nbsp;·&nbsp;
+        <a href="../guia.html">Guia completo</a>
+        <div class="by" style="margin-top:14px">by <a href="https://ssys.ia.br" target="_blank" rel="noopener">SSYS.ia.br</a></div>
+      </div>
+    </div>
+    <div class="aviso">
+      <strong>Aviso.</strong> Valores levantados em fontes oficiais e setoriais em 2026 e
+      sujeitos a alteração. Confirme os valores vigentes com o Serpro e com o integrador
+      escolhido antes de fechar contrato.
+    </div>
+  </div>
+</footer>
+
+<script>
+const CONFIG = {
+  whatsapp: '5531992650324',
+  mensagem: 'Olá! Li o artigo sobre quanto custa o RENAVE e queria entender melhor pra minha loja.'
+};
+
+document.querySelectorAll('[data-zap]').forEach(function(a){
+  a.href = 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(CONFIG.mensagem);
+  a.target = '_blank';
+  a.rel = 'noopener';
+});
+
+const io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+  });
+}, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
+document.querySelectorAll('.rv').forEach(function(el, i){
+  el.style.transitionDelay = (i % 3) * 90 + 'ms';
+  io.observe(el);
+});
+</script>
+</body>
+</html>

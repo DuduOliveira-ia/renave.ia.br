@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RENAVE obrigatório — o que muda para sua loja</title>
+<meta name="description" content="A Resolução CONTRAN 1.026/2026 tornou o registro de estoque no RENAVE obrigatório em todo o Brasil. Entenda o que muda, o prazo e como se credenciar sem dor de cabeça.">
+<meta property="og:title" content="RENAVE obrigatório — o que muda para sua loja">
+<meta property="og:description" content="Prazo de adaptação, multa por veículo em estoque e o passo a passo do credenciamento. Guia direto para lojas de repasse.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#101215">
+<meta property="og:url" content="https://renave.ia.br/">
+<meta property="og:image" content="https://renave.ia.br/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Guia RENAVE">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://renave.ia.br/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   CONFIG VISUAL
+   ============================================================ */
+:root{
+  --asfalto:#101215;
+  --asfalto-2:#171a1f;
+  --asfalto-3:#1e2228;
+  --linha:#2b3038;
+  --papel:#F5F2EA;
+  --papel-dim:#a8a49b;
+  --sinal:#FFB800;
+  --sinal-esc:#c78d00;
+  --alerta:#FF4D3D;
+
+  --display:'Anton',Impact,'Haettenschweiler','Arial Narrow Bold',sans-serif;
+  --corpo:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+
+  --max:1140px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--asfalto);
+  color:var(--papel);
+  font-family:var(--corpo);
+  font-size:17px;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* grão sobre tudo */
+body::after{
+  content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.038;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+/* faixa zebrada de advertência */
+.hazard{
+  height:12px;
+  background:repeating-linear-gradient(-45deg,var(--sinal) 0 18px,var(--asfalto) 18px 36px);
+}
+.hazard--fina{height:6px;opacity:.75}
+
+/* ============================================================
+   TIPOGRAFIA
+   ============================================================ */
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-height:.94;text-transform:uppercase}
+h1{font-size:clamp(2.9rem,8.2vw,6.4rem)}
+h2{font-size:clamp(2.1rem,5.2vw,3.9rem)}
+h3{font-size:clamp(1.25rem,2.4vw,1.6rem);line-height:1.05}
+p{max-width:62ch}
+a{color:inherit}
+
+.eyebrow{
+  font-family:var(--mono);font-size:.735rem;font-weight:600;
+  letter-spacing:.19em;text-transform:uppercase;color:var(--sinal);
+  display:flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:'';width:26px;height:2px;background:var(--sinal);flex:none}
+.lead{font-size:clamp(1.05rem,2.1vw,1.28rem);color:#d6d2c9;line-height:1.55}
+.dim{color:var(--papel-dim)}
+mark{background:var(--sinal);color:#0b0c0e;padding:0 .18em;font-weight:600}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;padding:0 0 88px;
+  background:
+    radial-gradient(1000px 520px at 78% -8%,rgba(255,184,0,.13),transparent 62%),
+    linear-gradient(180deg,#0c0e11 0%,var(--asfalto) 100%);
+  border-bottom:1px solid var(--linha);
+  overflow:hidden;
+}
+/* linha de rodovia tracejada ao fundo */
+.hero::before{
+  content:'';position:absolute;left:0;right:0;bottom:23%;height:14px;
+  background:repeating-linear-gradient(90deg,rgba(245,242,234,.055) 0 74px,transparent 74px 138px);
+  transform:rotate(-2.6deg) scale(1.25);pointer-events:none;
+}
+
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:22px 0 0;position:relative;z-index:2;
+}
+.by{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--papel-dim)}
+.by a{color:var(--papel-dim);text-decoration:none;border-bottom:1px dotted var(--linha);padding-bottom:1px;transition:color .2s,border-color .2s}
+.by a:hover{color:var(--sinal);border-color:var(--sinal)}
+.topbar .tel{font-family:var(--mono);font-size:.8rem;color:var(--papel-dim);text-decoration:none;transition:color .2s}
+.topbar .tel:hover{color:var(--sinal)}
+
+.hero-grid{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1.32fr .82fr;gap:56px;align-items:end;
+  padding-top:clamp(48px,8vw,96px);
+}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:40px;align-items:start}}
+
+h1 .risco{
+  color:var(--sinal);position:relative;display:inline-block;
+}
+.hero h1{margin:20px 0 26px}
+.hero .lead{max-width:52ch}
+
+.cta-linha{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.btn{
+  display:inline-flex;align-items:center;gap:11px;
+  padding:17px 28px;border:none;cursor:pointer;
+  font-family:var(--corpo);font-size:1rem;font-weight:700;letter-spacing:.01em;
+  text-decoration:none;transition:transform .16s cubic-bezier(.2,.9,.3,1.2),box-shadow .16s;
+}
+.btn--sinal{background:var(--sinal);color:#0b0c0e;box-shadow:5px 5px 0 var(--sinal-esc)}
+.btn--sinal:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--sinal-esc)}
+.btn--ghost{background:transparent;color:var(--papel);border:1px solid var(--linha);box-shadow:none}
+.btn--ghost:hover{border-color:var(--sinal);color:var(--sinal);transform:translateY(-2px)}
+.btn svg{width:19px;height:19px;flex:none}
+
+/* contador */
+.contador{
+  border:1px solid var(--linha);background:rgba(23,26,31,.72);backdrop-filter:blur(6px);
+  padding:26px 26px 22px;position:relative;
+}
+.contador::before{content:'';position:absolute;top:-1px;left:-1px;right:-1px;height:4px;background:var(--sinal)}
+.contador .rot{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--papel-dim)}
+.contador .num{font-family:var(--display);font-size:clamp(4rem,11vw,6.2rem);line-height:.84;color:var(--sinal);margin:10px 0 2px}
+.contador .sub{font-size:.94rem;color:#d6d2c9}
+.contador .data{
+  margin-top:16px;padding-top:14px;border-top:1px dashed var(--linha);
+  font-family:var(--mono);font-size:.76rem;color:var(--papel-dim);line-height:1.5;
+}
+
+/* ============================================================
+   FAIXA DE NÚMEROS
+   ============================================================ */
+.faixa{background:var(--sinal);color:#0b0c0e}
+.faixa .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;padding-top:0;padding-bottom:0}
+.faixa .item{padding:30px 22px 30px 0}
+.faixa .item + .item{padding-left:30px;border-left:1px solid rgba(11,12,14,.22)}
+.faixa .v{font-family:var(--display);font-size:clamp(1.7rem,4vw,2.6rem);line-height:1}
+.faixa .k{font-family:var(--mono);font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;opacity:.72;margin-top:7px}
+@media(max-width:760px){
+  .faixa .wrap{grid-template-columns:1fr}
+  .faixa .item{padding:20px 0}
+  .faixa .item + .item{padding-left:0;border-left:none;border-top:1px solid rgba(11,12,14,.22)}
+}
+
+/* ============================================================
+   SEÇÕES
+   ============================================================ */
+section{padding:clamp(66px,9vw,112px) 0}
+.sec-head{margin-bottom:52px;max-width:64ch}
+.sec-head h2{margin:18px 0 20px}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:880px){.cards{grid-template-columns:1fr}}
+.card{
+  background:var(--asfalto-2);border:1px solid var(--linha);
+  padding:30px 26px 28px;position:relative;transition:border-color .22s,transform .22s;
+}
+.card:hover{border-color:#3d4450;transform:translateY(-3px)}
+.card .cod{
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.15em;color:var(--sinal);
+  border:1px solid rgba(255,184,0,.32);padding:4px 9px;display:inline-block;margin-bottom:18px;
+}
+.card h3{margin-bottom:12px}
+.card p{font-size:.95rem;color:#c3bfb6}
+
+/* bloco multa */
+.multa{
+  border:1px solid rgba(255,77,61,.42);background:linear-gradient(180deg,rgba(255,77,61,.09),rgba(255,77,61,.02));
+  padding:clamp(30px,4.4vw,46px);display:grid;grid-template-columns:auto 1fr;gap:clamp(26px,4vw,48px);align-items:center;
+}
+@media(max-width:760px){.multa{grid-template-columns:1fr;gap:22px}}
+.multa .valor{font-family:var(--display);font-size:clamp(2.6rem,7vw,4.4rem);line-height:.9;color:var(--alerta);white-space:nowrap}
+.multa .valor small{display:block;font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;color:var(--papel-dim);margin-top:10px;text-transform:uppercase}
+.multa p{font-size:1.02rem;color:#ded9d0}
+.multa p + p{margin-top:12px}
+
+/* ============================================================
+   CTA FINAL + RODAPÉ
+   ============================================================ */
+.final{background:var(--sinal);color:#0b0c0e;text-align:center}
+.final h2{max-width:19ch;margin:0 auto 22px}
+.final p{max-width:54ch;margin:0 auto;font-size:1.08rem;color:rgba(11,12,14,.78)}
+.final .btn--dark{background:#0b0c0e;color:var(--sinal);box-shadow:5px 5px 0 rgba(11,12,14,.28);margin-top:34px}
+.final .btn--dark:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 rgba(11,12,14,.28)}
+.final .obs{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;margin-top:20px;color:rgba(11,12,14,.6)}
+
+footer{padding:52px 0 60px;border-top:1px solid var(--linha);font-size:.86rem;color:var(--papel-dim)}
+footer .cols{display:flex;justify-content:space-between;gap:34px;flex-wrap:wrap;align-items:flex-start}
+footer a{color:var(--papel-dim);text-decoration:none;border-bottom:1px solid transparent;transition:.2s}
+footer a:hover{color:var(--sinal);border-bottom-color:var(--sinal)}
+.aviso{
+  margin-top:32px;padding:18px 20px;border:1px dashed var(--linha);
+  font-size:.79rem;line-height:1.6;color:#8e8a82;max-width:none;
+}
+.aviso strong{color:var(--papel-dim)}
+
+/* reveal on scroll */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.8,.3,1),transform .7s cubic-bezier(.2,.8,.3,1)}
+.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="hazard"></div>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="wrap">
+    <div class="topbar">
+      <div class="by">Guia RENAVE · <a href="https://ssys.ia.br" target="_blank" rel="noopener">by SSYS.ia.br</a></div>
+      <a class="tel" href="#falar" data-zap>Falar com a gente &rarr;</a>
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Resolução CONTRAN nº 1.026/2026</div>
+        <h1>O RENAVE deixou de ser <span class="risco">opcional</span>.</h1>
+        <p class="lead">
+          Publicada em 30 de junho, a resolução tornou o registro eletrônico de entrada e
+          saída de veículos em estoque <strong>obrigatório em todo o Brasil</strong>, com
+          90 dias de adaptação. Toda loja que compra, vende ou consigna usados entra na regra.
+        </p>
+        <div class="cta-linha">
+          <a class="btn btn--sinal" href="#falar" data-zap>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.5-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+            Tirar dúvida no WhatsApp
+          </a>
+          <a class="btn btn--ghost" href="#oquemuda">Ver o que muda na prática</a>
+        </div>
+      </div>
+
+      <aside class="contador">
+        <div class="rot">Prazo de adaptação</div>
+        <div class="num" id="dias">—</div>
+        <div class="sub" id="diasTxt">dias até o fim do prazo</div>
+        <div class="data">
+          Contagem a partir da publicação<br>em 30/06/2026 + 90 dias.
+        </div>
+      </aside>
+    </div>
+  </div>
+</header>
+
+<!-- ================= FAIXA ================= -->
+<div class="faixa">
+  <div class="wrap">
+    <div class="item">
+      <div class="v">R$ 293,47</div>
+      <div class="k">por veículo em estoque sem registro</div>
+    </div>
+    <div class="item">
+      <div class="v">Gravíssima</div>
+      <div class="k">natureza da infração — art. 330 do CTB</div>
+    </div>
+    <div class="item">
+      <div class="v">R$ 4,43</div>
+      <div class="k">taxa do Serpro por movimentação de estoque</div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= O QUE MUDA ================= -->
+<section id="oquemuda">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">Na prática</div>
+      <h2>O livro de registro saiu do papel.</h2>
+      <p class="lead">
+        O RENAVE substitui o antigo controle físico de estoque. Cada carro que entra e
+        cada carro que sai passa a gerar um registro eletrônico no sistema do
+        Detran — e é esse registro que vale como prova da operação.
+      </p>
+    </div>
+
+    <div class="cards">
+      <article class="card rv">
+        <span class="cod">ENTRADA</span>
+        <h3>TEE</h3>
+        <p>
+          Termo de Entrada em Estoque. Ao comprar ou receber em consignação, a loja
+          registra o veículo e o sistema emite o TEE. O CRLV-e digital sai na sequência,
+          sem despachante e sem ir ao Detran.
+        </p>
+      </article>
+      <article class="card rv">
+        <span class="cod">SAÍDA</span>
+        <h3>ATPV-e + TSE</h3>
+        <p>
+          Na venda, a transferência sai eletrônica: acabou o DUT com firma reconhecida
+          em cartório. O sistema gera o ATPV-e para o comprador e o Termo de Saída de
+          Estoque para a loja.
+        </p>
+      </article>
+      <article class="card rv">
+        <span class="cod">CONSIGNAÇÃO</span>
+        <h3>Contrato digital</h3>
+        <p>
+          Veículo de terceiro continua no nome do dono — mas exige contrato eletrônico
+          no padrão SENATRAN, assinado digitalmente pelas duas partes, antes de entrar
+          no estoque.
+        </p>
+      </article>
+    </div>
+
+    <div class="multa rv" style="margin-top:34px">
+      <div class="valor">R$ 293,47<small>por veículo irregular</small></div>
+      <div>
+        <p>
+          A multa não é por loja: é <strong>por veículo em estoque sem registro</strong>.
+          Um pátio com 20 carros irregulares chega a <mark>R$ 5.869,40</mark> em exposição.
+        </p>
+        <p class="dim" style="font-size:.93rem">
+          Some a isso o risco prático: banco que não libera financiamento para carro sem
+          CRLV-e regular, e venda travada na hora da transferência.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMO SE PREPARAR ================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">Checklist</div>
+      <h2>O que sua loja precisa ter.</h2>
+    </div>
+    <div class="cards">
+      <article class="card rv">
+        <span class="cod">01</span>
+        <h3>CNAE certo</h3>
+        <p>
+          O credenciamento exige CNAE de comércio de veículos — 4511-1/02 (usados) e/ou
+          4512-9/02 (consignação). Quem tem só CNAE de intermediação (7490-1/04)
+          costuma precisar de ajuste com o contador.
+        </p>
+      </article>
+      <article class="card rv">
+        <span class="cod">02</span>
+        <h3>e-CNPJ A1</h3>
+        <p>
+          Certificado digital ICP-Brasil no CNPJ da loja. É o que assina as operações no
+          sistema. Se a loja já emite nota, provavelmente já tem.
+        </p>
+      </article>
+      <article class="card rv">
+        <span class="cod">03</span>
+        <h3>Credenciamento</h3>
+        <p>
+          Cadastro no Sistema Credencia do SERPRO — gratuito, cinco etapas, incluindo
+          responsável técnico e termo de sigilo. Depois disso, a loja opera por conta
+          própria ou via empresa integradora homologada.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA FINAL ================= -->
+<section class="final" id="falar">
+  <div class="wrap">
+    <h2>Vamos conversar sobre o RENAVE da sua loja.</h2>
+    <p>
+      Prazo, multa, credenciamento, TEE, ATPV-e — tire a dúvida que estiver travando
+      você agora. Conversa direta, sem compromisso e sem venda de sistema do outro lado.
+    </p>
+    <a class="btn btn--dark" href="#" data-zap>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.5-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+      Tirar dúvida no WhatsApp
+    </a>
+    <div class="obs">resposta no mesmo dia · sem custo, sem compromisso</div>
+  </div>
+</section>
+
+<div class="hazard hazard--fina"></div>
+
+<!-- ================= RODAPÉ ================= -->
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="eyebrow">Guia RENAVE para lojas de repasse</div>
+        <p style="margin-top:10px;font-size:.85rem">Resolução CONTRAN nº 1.026/2026, explicada em linguagem simples.<br>Belo Horizonte · Contagem · Minas Gerais</p>
+      </div>
+      <div>
+        <a href="guia.html">Guia completo do RENAVE</a> &nbsp;·&nbsp;
+        <a href="blog/index.html">Artigos</a> &nbsp;·&nbsp;
+        <a href="#" data-zap>WhatsApp</a> &nbsp;·&nbsp;
+        <a href="mailto:ssysbot@gmail.com">ssysbot@gmail.com</a>
+        <div class="by" style="margin-top:14px">by <a href="https://ssys.ia.br" target="_blank" rel="noopener">SSYS.ia.br</a></div>
+      </div>
+    </div>
+
+    <div class="aviso">
+      <strong>Aviso.</strong> Esta página resume, em linguagem simples, a Resolução CONTRAN
+      nº 1.026/2026 e as regras do RENAVE vigentes em agosto de 2026. A regulamentação está
+      em transição e prazos, valores e procedimentos podem mudar ou variar conforme o estado —
+      a FAQ do SERPRO ainda descreve regras anteriores para veículos usados. Confirme a
+      situação da sua loja junto ao Detran do seu estado ou ao SERPRO antes de tomar decisão.
+      Não prestamos serviço de despachante nem fazemos o credenciamento no seu lugar.
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   CONFIGURAÇÃO — trocar aqui e vale pra página inteira
+   ============================================================ */
+const CONFIG = {
+  // número no formato internacional, só dígitos: 55 + DDD + número
+  whatsapp: '5531992650324',
+  mensagem: 'Olá! Vi a página sobre o RENAVE e queria entender o que muda pra minha loja.'
+};
+
+document.querySelectorAll('[data-zap]').forEach(function(a){
+  a.href = 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(CONFIG.mensagem);
+  a.target = '_blank';
+  a.rel = 'noopener';
+});
+
+/* contagem regressiva — 30/06/2026 + 90 dias */
+(function(){
+  const alvo = new Date(2026, 8, 28); // 28/09/2026
+  const hoje = new Date(); hoje.setHours(0,0,0,0);
+  const dias = Math.round((alvo - hoje) / 86400000);
+  const el = document.getElementById('dias');
+  const txt = document.getElementById('diasTxt');
+  if (dias > 0) {
+    el.textContent = dias;
+    txt.textContent = dias === 1 ? 'dia até o fim do prazo' : 'dias até o fim do prazo';
+  } else {
+    el.textContent = '0';
+    el.style.color = 'var(--alerta)';
+    txt.textContent = 'o prazo de adaptação já se encerrou';
+  }
+})();
+
+/* reveal no scroll */
+const io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+  });
+}, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
+document.querySelectorAll('.rv').forEach(function(el, i){
+  el.style.transitionDelay = (i % 3) * 90 + 'ms';
+  io.observe(el);
+});
+</script>
+</body>
+</html>

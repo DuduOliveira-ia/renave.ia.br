@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guia completo do RENAVE para lojas de repasse</title>
+<meta name="description" content="O que é o RENAVE, como funciona na prática, quanto custa e o passo a passo do credenciamento — tudo em um só lugar, sem juridiquês, pra lojas de veículos usados e de repasse.">
+<meta property="og:title" content="Guia completo do RENAVE para lojas de repasse">
+<meta property="og:description" content="Fundamento legal, fluxos de entrada e saída, custos, credenciamento passo a passo e glossário. O guia de referência sobre o RENAVE.">
+<meta property="og:type" content="article">
+<meta name="theme-color" content="#101215">
+<meta property="og:url" content="https://renave.ia.br/guia.html">
+<meta property="og:image" content="https://renave.ia.br/og-guia.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Guia RENAVE">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://renave.ia.br/guia.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   CONFIG VISUAL — mesmo sistema da landing principal
+   ============================================================ */
+:root{
+  --asfalto:#101215;
+  --asfalto-2:#171a1f;
+  --asfalto-3:#1e2228;
+  --linha:#2b3038;
+  --papel:#F5F2EA;
+  --papel-dim:#a8a49b;
+  --sinal:#FFB800;
+  --sinal-esc:#c78d00;
+  --alerta:#FF4D3D;
+
+  --display:'Anton',Impact,'Haettenschweiler','Arial Narrow Bold',sans-serif;
+  --corpo:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+
+  --max:1140px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--asfalto);
+  color:var(--papel);
+  font-family:var(--corpo);
+  font-size:17px;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+body::after{
+  content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.038;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+.hazard{
+  height:12px;
+  background:repeating-linear-gradient(-45deg,var(--sinal) 0 18px,var(--asfalto) 18px 36px);
+}
+.hazard--fina{height:6px;opacity:.75}
+
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-height:.94;text-transform:uppercase}
+h1{font-size:clamp(2.6rem,6.4vw,4.6rem)}
+h2{font-size:clamp(1.9rem,4.2vw,2.9rem)}
+h3{font-size:clamp(1.15rem,2.2vw,1.4rem);line-height:1.05}
+p{max-width:62ch}
+a{color:inherit}
+
+.eyebrow{
+  font-family:var(--mono);font-size:.735rem;font-weight:600;
+  letter-spacing:.19em;text-transform:uppercase;color:var(--sinal);
+  display:flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:'';width:26px;height:2px;background:var(--sinal);flex:none}
+.lead{font-size:clamp(1.05rem,2.1vw,1.28rem);color:#d6d2c9;line-height:1.55}
+.dim{color:var(--papel-dim)}
+mark{background:var(--sinal);color:#0b0c0e;padding:0 .18em;font-weight:600}
+
+/* HERO */
+.hero{
+  position:relative;padding:0 0 60px;
+  background:
+    radial-gradient(1000px 520px at 78% -8%,rgba(255,184,0,.13),transparent 62%),
+    linear-gradient(180deg,#0c0e11 0%,var(--asfalto) 100%);
+  border-bottom:1px solid var(--linha);
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;left:0;right:0;bottom:23%;height:14px;
+  background:repeating-linear-gradient(90deg,rgba(245,242,234,.055) 0 74px,transparent 74px 138px);
+  transform:rotate(-2.6deg) scale(1.25);pointer-events:none;
+}
+
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:22px 0 0;position:relative;z-index:2;
+}
+.by{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--papel-dim)}
+.by a{color:var(--papel-dim);text-decoration:none;border-bottom:1px dotted var(--linha);padding-bottom:1px;transition:color .2s,border-color .2s}
+.by a:hover{color:var(--sinal);border-color:var(--sinal)}
+.topbar .tel{font-family:var(--mono);font-size:.8rem;color:var(--papel-dim);text-decoration:none;transition:color .2s}
+.topbar .tel:hover{color:var(--sinal)}
+
+.hero-conteudo{position:relative;z-index:2;padding-top:clamp(40px,7vw,80px);max-width:800px}
+.hero h1{margin:20px 0 22px}
+.hero .lead{max-width:60ch}
+
+.cta-linha{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.btn{
+  display:inline-flex;align-items:center;gap:11px;
+  padding:17px 28px;border:none;cursor:pointer;
+  font-family:var(--corpo);font-size:1rem;font-weight:700;letter-spacing:.01em;
+  text-decoration:none;transition:transform .16s cubic-bezier(.2,.9,.3,1.2),box-shadow .16s;
+}
+.btn--sinal{background:var(--sinal);color:#0b0c0e;box-shadow:5px 5px 0 var(--sinal-esc)}
+.btn--sinal:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--sinal-esc)}
+.btn--ghost{background:transparent;color:var(--papel);border:1px solid var(--linha);box-shadow:none}
+.btn--ghost:hover{border-color:var(--sinal);color:var(--sinal);transform:translateY(-2px)}
+.btn svg{width:19px;height:19px;flex:none}
+
+.sumario{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:36px;padding-top:26px;border-top:1px solid var(--linha)}
+.sumario a{font-family:var(--mono);font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;color:var(--papel-dim);text-decoration:none;border-bottom:1px dotted var(--linha);padding-bottom:2px;transition:color .2s,border-color .2s}
+.sumario a:hover{color:var(--sinal);border-color:var(--sinal)}
+
+/* SEÇÕES */
+section{padding:clamp(54px,8vw,96px) 0}
+.sec-head{margin-bottom:42px;max-width:68ch}
+.sec-head h2{margin:18px 0 18px}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.cards--2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:880px){.cards,.cards--2{grid-template-columns:1fr}}
+.card{
+  background:var(--asfalto-2);border:1px solid var(--linha);
+  padding:28px 26px 26px;position:relative;transition:border-color .22s,transform .22s;
+}
+.card:hover{border-color:#3d4450;transform:translateY(-3px)}
+.card .cod{
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.15em;color:var(--sinal);
+  border:1px solid rgba(255,184,0,.32);padding:4px 9px;display:inline-block;margin-bottom:16px;
+}
+.card h3{margin-bottom:10px}
+.card p{font-size:.94rem;color:#c3bfb6}
+
+/* passo a passo */
+.passos{list-style:none;counter-reset:passo;margin-top:8px}
+.passos li{position:relative;padding:24px 0 24px 66px;border-top:1px solid var(--linha)}
+.passos li:first-child{border-top:none;padding-top:6px}
+.passos li::before{
+  counter-increment:passo;content:counter(passo);position:absolute;left:0;top:26px;
+  width:42px;height:42px;border:1px solid var(--sinal);color:var(--sinal);
+  font-family:var(--mono);font-weight:600;display:grid;place-items:center;font-size:1.05rem;
+}
+.passos li:first-child::before{top:6px}
+.passos h3{margin-bottom:8px;font-size:1.08rem;text-transform:none;font-family:var(--corpo);font-weight:700;letter-spacing:0;line-height:1.3}
+.passos p{font-size:.96rem;color:#c3bfb6;line-height:1.6}
+.passos .link{display:inline-block;margin-top:8px;font-family:var(--mono);font-size:.8rem;color:var(--sinal);word-break:break-all;text-decoration:none;border-bottom:1px dotted var(--sinal-esc)}
+
+/* checklist compacto */
+.checks{list-style:none;margin-top:18px}
+.checks li{padding-left:30px;position:relative;margin-bottom:12px;font-size:.98rem;color:#ded9d0;max-width:64ch}
+.checks li::before{
+  content:'';position:absolute;left:0;top:.45em;width:15px;height:8px;
+  border-left:2.5px solid var(--sinal);border-bottom:2.5px solid var(--sinal);transform:rotate(-45deg);
+}
+
+/* glossário */
+.glossario{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--linha);border:1px solid var(--linha);margin-top:8px}
+.glossario .termo{background:var(--asfalto-2);padding:18px 20px}
+.glossario .termo b{display:block;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;color:var(--sinal);margin-bottom:6px;text-transform:uppercase}
+.glossario .termo span{font-size:.87rem;color:#c3bfb6;line-height:1.55}
+@media(max-width:760px){.glossario{grid-template-columns:1fr}}
+
+/* CTA FINAL + RODAPÉ */
+.final{background:var(--sinal);color:#0b0c0e;text-align:center}
+.final h2{max-width:22ch;margin:0 auto 22px}
+.final p{max-width:54ch;margin:0 auto;font-size:1.08rem;color:rgba(11,12,14,.78)}
+.final .btn--dark{background:#0b0c0e;color:var(--sinal);box-shadow:5px 5px 0 rgba(11,12,14,.28);margin-top:34px}
+.final .btn--dark:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 rgba(11,12,14,.28)}
+.final .obs{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;margin-top:20px;color:rgba(11,12,14,.6)}
+
+footer{padding:52px 0 60px;border-top:1px solid var(--linha);font-size:.86rem;color:var(--papel-dim)}
+footer .cols{display:flex;justify-content:space-between;gap:34px;flex-wrap:wrap;align-items:flex-start}
+footer a{color:var(--papel-dim);text-decoration:none;border-bottom:1px solid transparent;transition:.2s}
+footer a:hover{color:var(--sinal);border-bottom-color:var(--sinal)}
+.aviso{
+  margin-top:32px;padding:18px 20px;border:1px dashed var(--linha);
+  font-size:.79rem;line-height:1.6;color:#8e8a82;max-width:none;
+}
+.aviso strong{color:var(--papel-dim)}
+
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.8,.3,1),transform .7s cubic-bezier(.2,.8,.3,1)}
+.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="hazard"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="topbar">
+      <div class="by">Guia RENAVE · <a href="https://ssys.ia.br" target="_blank" rel="noopener">by SSYS.ia.br</a></div>
+      <a class="tel" href="index.html">&larr; Voltar</a>
+    </div>
+
+    <div class="hero-conteudo">
+      <div class="eyebrow">Guia completo · leitura de ~12 min</div>
+      <h1>Tudo sobre o RENAVE, explicado pra quem vende carro.</h1>
+      <p class="lead">
+        Da Resolução CONTRAN nº 1.026/2026 ao passo a passo do credenciamento: o que é,
+        como funciona, quanto custa e o que evitar. Em um só lugar, sem juridiquês.
+      </p>
+      <div class="cta-linha">
+        <a class="btn btn--sinal" href="#falar" data-zap>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.5-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+          Tirar dúvida no WhatsApp
+        </a>
+        <a class="btn btn--ghost" href="#credenciamento">Ver o passo a passo</a>
+      </div>
+
+      <nav class="sumario">
+        <a href="#contexto">O que é</a>
+        <a href="#linha-do-tempo">Linha do tempo</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#custos">Quanto custa</a>
+        <a href="#credenciamento">Credenciamento</a>
+        <a href="#erros">Erros comuns</a>
+        <a href="#glossario">Glossário</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- ================= CONTEXTO ================= -->
+<section id="contexto">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">Contexto</div>
+      <h2>O RENAVE não é um sistema — é uma API.</h2>
+      <p class="lead">
+        O RENAVE (Registro Nacional de Veículos em Estoque) é a plataforma oficial do
+        Governo Federal pro controle eletrônico de entrada e saída de veículos no estoque
+        de lojas, concessionárias e demais empresas do setor. Ele substitui, em meio
+        digital, o antigo livro físico de registro que o Código de Trânsito Brasileiro já
+        exigia desde 1997.
+      </p>
+    </div>
+    <p class="rv" style="margin-bottom:16px">
+      O próprio Serpro é direto sobre isso: <mark>"o RENAVE não é um sistema; é uma
+      solução WebService e utiliza API para sua integração."</mark> Não existe uma tela
+      de governo pra você logar e usar no dia a dia. O que existe é uma interface de
+      programação — e quem constrói a tela, a experiência e a automação em cima dela é um
+      integrador (uma empresa de software) ou a própria loja, se tiver capacidade de
+      desenvolver.
+    </p>
+    <p class="rv" style="margin-bottom:16px">
+      Outro ponto que gera confusão: o RENAVE não é um sistema estadual — é nacional.
+      A norma é federal (Senatran/Contran), a tecnologia é do Serpro, e cada Detran
+      estadual se integra à plataforma. O que muda de estado pra estado é o ritmo da
+      adesão e alguma regra operacional local, não a plataforma em si.
+    </p>
+    <p class="rv dim" style="font-size:.95rem">
+      A virada de 2026: a Resolução CONTRAN nº 1.026/2026, publicada no fim de junho,
+      tornou o RENAVE obrigatório em todo o Brasil, com 90 dias de prazo pra adaptação
+      (até o fim de setembro de 2026). Deixou de ser diferencial competitivo — virou
+      condição pra operar dentro da lei.
+    </p>
+  </div>
+</section>
+
+<!-- ================= LINHA DO TEMPO ================= -->
+<section id="linha-do-tempo" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">Fundamento legal</div>
+      <h2>Como chegamos até aqui.</h2>
+      <p class="lead">
+        O RENAVE não nasceu em 2026 — a obrigatoriedade nacional é o último degrau de uma
+        construção jurídica que já vem desde o Código de Trânsito de 1997.
+      </p>
+    </div>
+    <div class="cards">
+      <article class="card rv">
+        <span class="cod">1997</span>
+        <h3>CTB, art. 330</h3>
+        <p>A Lei nº 9.503/1997 já obrigava lojas e revendas a manter um livro de registro de entrada e saída de veículos em estoque. Era em papel — e é a base legal de tudo que veio depois.</p>
+      </article>
+      <article class="card rv">
+        <span class="cod">2020</span>
+        <h3>Resolução 807/2020</h3>
+        <p>Instituiu oficialmente o RENAVE: o registro eletrônico de entrada e saída de veículos, novos e usados, substituindo o livro físico.</p>
+      </article>
+      <article class="card rv">
+        <span class="cod">2020</span>
+        <h3>Portarias 797 e 2.639</h3>
+        <p>Detalharam as regras operacionais do registro eletrônico — o "como" por trás da resolução que criou o RENAVE.</p>
+      </article>
+      <article class="card rv">
+        <span class="cod">2021</span>
+        <h3>Resolução 818/2021</h3>
+        <p>Trouxe ajustes e complementos à regulamentação do registro em estoque.</p>
+      </article>
+      <article class="card rv">
+        <span class="cod">2022</span>
+        <h3>Portaria SENATRAN 922</h3>
+        <p>Criou as regras do credenciamento: o processo pelo qual sua loja se cadastra na plataforma Credencia.</p>
+      </article>
+      <article class="card rv">
+        <span class="cod">2026</span>
+        <h3>Resolução 1.026/2026</h3>
+        <p>Tornou o RENAVE obrigatório em todo o Brasil, com prazo de 90 dias pra adaptação. É a norma por trás do prazo que sua loja está correndo agora.</p>
+      </article>
+    </div>
+    <p class="dim rv" style="font-size:.85rem;margin-top:24px">
+      Antes de citar qualquer uma dessas normas em documento formal, confirme o texto
+      integral e a vigência atual no Diário Oficial da União e no portal de resoluções
+      do Contran.
+    </p>
+  </div>
+</section>
+
+<!-- ================= COMO FUNCIONA ================= -->
+<section id="como-funciona" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">Na prática</div>
+      <h2>Os quatro movimentos que sua loja vai fazer.</h2>
+      <p class="lead">
+        Cada entrada, saída, consignação ou repasse de veículo passa a gerar um registro
+        eletrônico. É esse registro — não mais o carimbo em papel — que vale como prova
+        da operação.
+      </p>
+    </div>
+    <div class="cards cards--2">
+      <article class="card rv">
+        <span class="cod">ENTRADA</span>
+        <h3>TEE — Termo de Entrada em Estoque</h3>
+        <p>Ao comprar ou receber um veículo em consignação, você registra a entrada e o sistema emite o TEE. O CRLV-e digital sai na sequência, sem despachante e sem fila no Detran.</p>
+      </article>
+      <article class="card rv">
+        <span class="cod">SAÍDA</span>
+        <h3>TSE + ATPV-e</h3>
+        <p>Na venda, a transferência sai eletrônica: acabou o DUT com firma reconhecida em cartório. O sistema gera o ATPV-e pro comprador e o TSE (Termo de Saída de Estoque) pra sua loja.</p>
+      </article>
+      <article class="card rv">
+        <span class="cod">CONSIGNAÇÃO</span>
+        <h3>Contrato eletrônico</h3>
+        <p>O veículo de terceiro continua no nome do dono, mas passa a exigir contrato eletrônico com assinatura digital registrado no RENAVE antes de entrar no estoque. Sem isso, não pode ser comercializado.</p>
+      </article>
+      <article class="card rv">
+        <span class="cod">REPASSE</span>
+        <h3>Transferência entre lojas</h3>
+        <p>A plataforma suporta nativamente a transferência de veículo entre estabelecimentos credenciados — o carro muda de loja sem passar pelo nome de uma pessoa física e sem burocracia extra.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CUSTOS ================= -->
+<section id="custos" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">Custos</div>
+      <h2>Não existe mensalidade única do governo.</h2>
+      <p class="lead">
+        O custo do RENAVE pra sua loja se divide em quatro frentes. Vale mapear seu
+        volume mensal de entradas e saídas antes de fechar com um integrador.
+      </p>
+    </div>
+    <div class="cards cards--2">
+      <article class="card rv">
+        <span class="cod">POR MOVIMENTAÇÃO</span>
+        <h3>~R$ 4,43 por entrada ou saída</h3>
+        <p>Taxa de transação cobrada pelo Serpro no RENAVE Usados. Um veículo que entra e depois é vendido gera duas cobranças. Confirme o valor vigente no ato da contratação.</p>
+      </article>
+      <article class="card rv">
+        <span class="cod">CERTIFICADO</span>
+        <h3>e-CNPJ A1</h3>
+        <p>Emitido junto a uma Autoridade Certificadora ICP-Brasil, pago pela sua loja. Validade típica de 12 meses.</p>
+      </article>
+      <article class="card rv">
+        <span class="cod">INTEGRADOR</span>
+        <h3>Mensalidade do integrador</h3>
+        <p>Cobrada pela empresa de software que constrói sua interface de uso e conecta você à API. Não existe tabela oficial — é preço de mercado, então vale comparar.</p>
+      </article>
+      <article class="card rv">
+        <span class="cod">DETRAN</span>
+        <h3>Taxas estaduais</h3>
+        <p>Cada UF pode ter suas próprias taxas de transferência e serviços — variam conforme o estado da sua loja.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CREDENCIAMENTO ================= -->
+<section id="credenciamento" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">Checklist</div>
+      <h2>Como credenciar sua loja, em 5 etapas.</h2>
+      <p class="lead">
+        Reúna os documentos antes de começar — contrato social, cartão CNPJ, certificado
+        digital, dados do responsável técnico — e faça todo o processo em uma aba anônima
+        do navegador. É a recomendação recorrente pra evitar erros de sessão e certificado
+        nas plataformas do Serpro.
+      </p>
+    </div>
+    <ol class="passos rv">
+      <li>
+        <h3>Emita o certificado digital</h3>
+        <p>Emita (ou confirme a validade de) um certificado e-CNPJ A1 junto a uma
+        Autoridade Certificadora ICP-Brasil — Serpro, Serasa, Certisign, Soluti, Valid,
+        entre outras. Guarde o arquivo e a senha em local seguro: você vai usar em todas
+        as etapas seguintes e na operação do dia a dia.</p>
+      </li>
+      <li>
+        <h3>Credencie sua loja na plataforma Credencia</h3>
+        <p>Acesse o Credencia em aba anônima, selecione seu certificado A1 e entre com
+        "Seu certificado digital". No menu "Solicitação" → "Nova solicitação", preencha
+        as 5 fases: Identificação, Contatos, Representantes Legais, Responsável Técnico e
+        Segurança da Informação. Envie e aguarde a validação — que inclui a checagem do
+        seu CNAE.</p>
+        <a class="link" href="https://credencia.serpro.gov.br/credencia-web/#/login" target="_blank" rel="noopener">credencia.serpro.gov.br/credencia-web</a>
+      </li>
+      <li>
+        <h3>Contrate na Loja Serpro (e-commerce)</h3>
+        <p>Com a solicitação aprovada, acesse "Contratação" → "Contrate Aqui" no
+        Credencia. Você será redirecionado ao e-commerce do Serpro: faça login com o
+        CNPJ da sua loja, escolha a categoria certa (normalmente "Concessionário/Lojista"),
+        preencha os dados de cobrança e assine o contrato com o certificado digital.</p>
+      </li>
+      <li>
+        <h3>Habilite o certificado</h3>
+        <p>De volta ao Credencia, vá em "Habilitação" → "Habilitação de Certificado",
+        anexe o certificado digital da máquina e finalize. A partir daqui, seu
+        certificado está apto a autenticar nas operações do RENAVE.</p>
+      </li>
+      <li>
+        <h3>Contrate a integração e comece a operar</h3>
+        <p>Contrate um integrador (ou desenvolva a integração internamente) pra conectar
+        sua loja à API do RENAVE. Valide o fluxo no ambiente de homologação antes de ir
+        pra produção — e só depois disso opere de verdade entrada, saída, repasse e
+        consignação.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= ERROS COMUNS ================= -->
+<section id="erros" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">Atenção</div>
+      <h2>5 erros que atrasam o credenciamento.</h2>
+      <p class="lead">
+        Pequenos deslizes que travam o processo — e são fáceis de evitar sabendo de
+        antemão.
+      </p>
+    </div>
+    <ul class="checks rv">
+      <li>Usar sessão antiga do navegador em vez de aba anônima — gera conflito de certificado/sessão nas plataformas do Serpro.</li>
+      <li>Emitir certificado A3 em vez de A1 quando a operação vai ser automatizada — o A3 fica em token físico e dificulta a automação em servidor.</li>
+      <li>CNAE incompatível com comércio de veículos — se o Credencia não reconhecer o CNAE, o credenciamento trava.</li>
+      <li>Estoque declarado divergente do estoque físico — mantenha a reconciliação em dia pra evitar autuação.</li>
+      <li>Deixar pra última hora — com a obrigatoriedade nacional e o prazo de 90 dias, a fila de emissão de certificado e credenciamento tende a aumentar.</li>
+    </ul>
+    <p class="dim rv" style="font-size:.92rem;margin-top:20px">
+      Detalhamos cada um desses pontos, com mais contexto, num artigo à parte —
+      <a href="blog/erros-comuns-credenciamento.html" style="color:var(--sinal);border-bottom:1px dotted var(--sinal-esc)">5 erros comuns no credenciamento do RENAVE →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ================= GLOSSÁRIO ================= -->
+<section id="glossario" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">Glossário</div>
+      <h2>Siglas e termos do RENAVE, sem juridiquês.</h2>
+    </div>
+    <div class="glossario rv">
+      <div class="termo"><b>RENAVE</b><span>Registro Nacional de Veículos em Estoque. Registro eletrônico oficial da entrada e saída de veículos em estoque de empresas do setor.</span></div>
+      <div class="termo"><b>Senatran</b><span>Secretaria Nacional de Trânsito, do Ministério dos Transportes. Órgão que normatiza o RENAVE.</span></div>
+      <div class="termo"><b>Contran</b><span>Conselho Nacional de Trânsito. Edita as resoluções que regulamentam o trânsito, incluindo o RENAVE.</span></div>
+      <div class="termo"><b>Denatran</b><span>Departamento Nacional de Trânsito, antecessor institucional de parte das competências hoje na Senatran; o nome ainda aparece em alguns sistemas.</span></div>
+      <div class="termo"><b>Serpro</b><span>Serviço Federal de Processamento de Dados. Estatal que operacionaliza a tecnologia do RENAVE (API, ambientes e Credencia).</span></div>
+      <div class="termo"><b>Detran</b><span>Departamento Estadual de Trânsito. Órgão estadual que integra o RENAVE, autoriza operações e emite documentos.</span></div>
+      <div class="termo"><b>Credencia</b><span>Plataforma do Serpro/Senatran onde sua loja solicita o credenciamento pra usar o RENAVE.</span></div>
+      <div class="termo"><b>Integrador / Solução digital</b><span>Empresa de software autorizada que conecta sua loja à API do RENAVE e fornece a interface de uso.</span></div>
+      <div class="termo"><b>API / WebService</b><span>Interface de programação pela qual sistemas conversam com o RENAVE. Não é uma tela; é a "tomada" técnica de integração.</span></div>
+      <div class="termo"><b>Certificado digital ICP-Brasil</b><span>Identidade eletrônica oficial emitida por Autoridade Certificadora credenciada. Usado pra autenticar e assinar.</span></div>
+      <div class="termo"><b>e-CNPJ</b><span>Certificado digital que representa a pessoa jurídica — no caso, sua loja.</span></div>
+      <div class="termo"><b>A1 / A3</b><span>Tipos de certificado. A1 é arquivo (fica no computador/servidor, ideal pra automação). A3 fica em token ou cartão físico.</span></div>
+      <div class="termo"><b>mTLS (autenticação mútua)</b><span>Modo de conexão segura em que cliente e servidor validam os certificados um do outro.</span></div>
+      <div class="termo"><b>TEE</b><span>Termo de Entrada em Estoque. Documento gerado quando o veículo entra no estoque da loja no RENAVE.</span></div>
+      <div class="termo"><b>TSE</b><span>Termo de Saída de Estoque. Documento gerado quando o veículo sai do estoque (venda/transferência).</span></div>
+      <div class="termo"><b>ATPV-e</b><span>Autorização para Transferência de Propriedade do Veículo, eletrônica. Substitui a antiga autorização em papel com firma reconhecida.</span></div>
+      <div class="termo"><b>CRV</b><span>Certificado de Registro de Veículo (documento de propriedade, historicamente em papel).</span></div>
+      <div class="termo"><b>CRLV-e</b><span>Certificado de Registro e Licenciamento de Veículo, em versão eletrônica/digital.</span></div>
+      <div class="termo"><b>NF-e</b><span>Nota Fiscal eletrônica. Base pra validar a elegibilidade do veículo na entrada e formalizar a saída.</span></div>
+      <div class="termo"><b>TCMS</b><span>Termo de Compromisso e Manutenção de Sigilo, assinado no credenciamento.</span></div>
+      <div class="termo"><b>CNAE</b><span>Classificação Nacional de Atividades Econômicas. Precisa ser compatível com comércio de veículos pro credenciamento.</span></div>
+      <div class="termo"><b>ITE</b><span>Implementadoras, Transformadoras e Encarroçadoras — empresas que atuam com veículos inacabados.</span></div>
+      <div class="termo"><b>Consignação</b><span>Modelo em que o dono deixa o veículo na loja pra venda; agora exige contrato eletrônico no RENAVE.</span></div>
+      <div class="termo"><b>Homologação (ambiente de)</b><span>Ambiente de testes da API, separado da produção, pro integrador validar a integração antes de operar de verdade.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA FINAL ================= -->
+<section class="final" id="falar">
+  <div class="wrap">
+    <h2>Ficou alguma dúvida sobre o RENAVE?</h2>
+    <p>
+      Prazo, credenciamento, custo, o que muda na rotina — pergunta direto no WhatsApp.
+      Conversa sem custo e sem venda de sistema do outro lado.
+    </p>
+    <a class="btn btn--dark" href="#" data-zap>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.5-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+      Tirar dúvida no WhatsApp
+    </a>
+    <div class="obs">resposta no mesmo dia · sem custo, sem compromisso</div>
+  </div>
+</section>
+
+<div class="hazard hazard--fina"></div>
+
+<!-- ================= RODAPÉ ================= -->
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="eyebrow">Guia completo do RENAVE</div>
+        <p style="margin-top:10px;font-size:.85rem">Resolução CONTRAN nº 1.026/2026, explicada em linguagem simples.<br>Belo Horizonte · Contagem · Minas Gerais</p>
+      </div>
+      <div>
+        <a href="index.html">Início</a> &nbsp;·&nbsp;
+        <a href="blog/index.html">Blog</a> &nbsp;·&nbsp;
+        <a href="#" data-zap>WhatsApp</a> &nbsp;·&nbsp;
+        <a href="mailto:ssysbot@gmail.com">ssysbot@gmail.com</a>
+        <div class="by" style="margin-top:14px">by <a href="https://ssys.ia.br" target="_blank" rel="noopener">SSYS.ia.br</a></div>
+      </div>
+    </div>
+
+    <div class="aviso">
+      <strong>Aviso.</strong> Este guia resume, em linguagem simples, a Resolução CONTRAN
+      nº 1.026/2026 e as regras do RENAVE vigentes em agosto de 2026. Valores, prazos e
+      procedimentos foram levantados em fontes oficiais e setoriais e podem mudar ou
+      variar conforme o estado. Confirme a situação da sua loja junto ao Detran do seu
+      estado ou ao Serpro antes de tomar decisão. Não prestamos serviço de despachante
+      nem fazemos o credenciamento no seu lugar.
+    </div>
+  </div>
+</footer>
+
+<script>
+const CONFIG = {
+  whatsapp: '5531992650324',
+  mensagem: 'Olá! Li o guia completo do RENAVE e queria tirar uma dúvida.'
+};
+
+document.querySelectorAll('[data-zap]').forEach(function(a){
+  a.href = 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(CONFIG.mensagem);
+  a.target = '_blank';
+  a.rel = 'noopener';
+});
+
+const io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+  });
+}, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
+document.querySelectorAll('.rv').forEach(function(el, i){
+  el.style.transitionDelay = (i % 3) * 90 + 'ms';
+  io.observe(el);
+});
+</script>
+</body>
+</html>
