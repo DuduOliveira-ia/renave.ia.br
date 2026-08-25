@@ -115,6 +115,9 @@ mark{background:var(--sinal);color:#0b0c0e;padding:0 .18em;font-weight:600}
   display:flex;align-items:center;justify-content:space-between;gap:20px;
   padding:22px 0 0;position:relative;z-index:2;
 }
+.marca{display:flex;align-items:center;gap:12px}
+.marca-logo{display:block;flex:none;line-height:0}
+.marca-logo img{width:30px;height:30px;display:block}
 .by{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--papel-dim)}
 .by a{color:var(--papel-dim);text-decoration:none;border-bottom:1px dotted var(--linha);padding-bottom:1px;transition:color .2s,border-color .2s}
 .by a:hover{color:var(--sinal);border-color:var(--sinal)}
@@ -148,6 +151,9 @@ h1 .risco{
 .btn svg{width:19px;height:19px;flex:none}
 
 /* contador */
+.hero-side{display:flex;flex-direction:column;gap:clamp(24px,4vw,40px)}
+.hero-logo{width:clamp(112px,13vw,168px);height:auto;align-self:center;display:block;filter:drop-shadow(0 0 34px rgba(255,184,0,.16))}
+@media(max-width:900px){.hero-logo{display:none}}
 .contador{
   border:1px solid var(--linha);background:rgba(23,26,31,.72);backdrop-filter:blur(6px);
   padding:26px 26px 22px;position:relative;
@@ -245,7 +251,10 @@ footer a:hover{color:var(--sinal);border-bottom-color:var(--sinal)}
 <header class="hero">
   <div class="wrap">
     <div class="topbar">
-      <div class="by">Guia RENAVE · <a href="https://ssys.ia.br" target="_blank" rel="noopener">by SSYS.ia.br</a></div>
+      <div class="marca">
+        <a class="marca-logo" href="/"><img src="logo.png" alt="RENAVE.ia.br" width="30" height="30"></a>
+        <div class="by">Guia RENAVE · <a href="https://ssys.ia.br" target="_blank" rel="noopener">by SSYS.ia.br</a></div>
+      </div>
       <a class="tel" href="#falar" data-zap>Falar com a gente &rarr;</a>
     </div>
 
@@ -267,14 +276,17 @@ footer a:hover{color:var(--sinal);border-bottom-color:var(--sinal)}
         </div>
       </div>
 
-      <aside class="contador">
-        <div class="rot">Prazo de adaptação</div>
-        <div class="num" id="dias">—</div>
-        <div class="sub" id="diasTxt">dias até o fim do prazo</div>
-        <div class="data">
-          Contagem a partir da publicação<br>em 30/06/2026 + 90 dias.
-        </div>
-      </aside>
+      <div class="hero-side">
+        <img class="hero-logo" src="logo.png" alt="" width="512" height="512">
+        <aside class="contador">
+          <div class="rot">Prazo de adaptação</div>
+          <div class="num" id="dias">—</div>
+          <div class="sub" id="diasTxt">dias até o fim do prazo</div>
+          <div class="data">
+            Contagem a partir da publicação<br>em 30/06/2026 + 90 dias.
+          </div>
+        </aside>
+      </div>
     </div>
   </div>
 </header>
