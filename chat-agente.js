@@ -4,14 +4,10 @@
   'use strict';
 
   var API_URL = 'https://renave-agente.vercel.app/api/chat';
-  var WHATSAPP_NUMERO = '5531992650324';
+  var GRUPO_WHATSAPP_URL = 'https://chat.whatsapp.com/KaVWWRTmYso9DRaDwJ4s1M';
   var STORAGE_KEY = 'renave_chat_v1';
 
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function zapLink(msg) {
-    return 'https://wa.me/' + WHATSAPP_NUMERO + '?text=' + encodeURIComponent(msg);
-  }
 
   function loadHistory() {
     try {
@@ -111,7 +107,7 @@
         '<textarea id="renave-chat-input" rows="1" placeholder="Escreva sua dúvida..." aria-label="Sua dúvida"></textarea>' +
         '<button id="renave-chat-send" type="submit">Enviar</button>' +
       '</form>' +
-      '<a id="renave-chat-zap" target="_blank" rel="noopener">prefere direto no WhatsApp? →</a>' +
+      '<a id="renave-chat-zap" target="_blank" rel="noopener">grupo de atualizações no WhatsApp →</a>' +
     '</div>';
 
   document.body.appendChild(btn);
@@ -124,7 +120,7 @@
   var zapEl = panel.querySelector('#renave-chat-zap');
   var closeEl = panel.querySelector('#renave-chat-close');
 
-  zapEl.href = zapLink('Olá! Estava conversando com o assistente do site sobre o RENAVE e quero continuar por aqui.');
+  zapEl.href = GRUPO_WHATSAPP_URL;
 
   var history = loadHistory();
   var open = false;
