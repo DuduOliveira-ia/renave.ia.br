@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin — RENAVE.ia</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --asfalto:#101215;
+  --asfalto-2:#171a1f;
+  --asfalto-3:#1e2228;
+  --linha:#2b3038;
+  --papel:#F5F2EA;
+  --papel-dim:#a8a49b;
+  --sinal:#FFB800;
+  --sinal-esc:#c78d00;
+  --alerta:#FF4D3D;
+
+  --display:'Anton',Impact,'Haettenschweiler','Arial Narrow Bold',sans-serif;
+  --corpo:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--asfalto);
+  color:var(--papel);
+  font-family:var(--corpo);
+  font-size:17px;
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+h1,h2{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-height:.96;text-transform:uppercase}
+h1{font-size:clamp(2rem,6vw,3.2rem)}
+h2{font-size:clamp(1.3rem,3vw,1.7rem);margin:0 0 4px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:.72rem;font-weight:600;
+  letter-spacing:.19em;text-transform:uppercase;color:var(--sinal);
+}
+.eyebrow::before{content:'';width:24px;height:2px;background:var(--sinal);flex:none}
+.dim{color:var(--papel-dim)}
+
+/* ---- gate de senha ---- */
+#gate{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:24px;
+}
+.gate-box{
+  width:100%;max-width:380px;
+  background:var(--asfalto-2);border:1px solid var(--linha);
+  border-radius:4px;padding:32px 28px;
+}
+.gate-box p{color:var(--papel-dim);font-size:.92rem;margin:8px 0 22px}
+#gate-form{display:flex;flex-direction:column;gap:12px}
+#gate-pass{
+  background:var(--asfalto);border:1px solid var(--linha);color:var(--papel);
+  font-family:var(--mono);font-size:1rem;padding:12px 14px;border-radius:3px;
+  outline:none;
+}
+#gate-pass:focus{border-color:var(--sinal)}
+#gate-erro{color:var(--alerta);font-size:.85rem;font-family:var(--mono);min-height:1.2em;margin:0}
+.btn{
+  background:var(--sinal);color:#0b0c0e;border:none;border-radius:3px;
+  font-family:var(--corpo);font-weight:700;font-size:.95rem;
+  padding:12px 18px;cursor:pointer;transition:background .15s;
+}
+.btn:hover{background:var(--sinal-esc)}
+.btn--linha{
+  background:transparent;color:var(--papel);border:1px solid var(--linha);
+  font-weight:600;
+}
+.btn--linha:hover{border-color:var(--sinal);color:var(--sinal);background:transparent}
+
+/* ---- painel ---- */
+#painel{display:none;padding:56px 0 80px}
+#painel.on{display:block}
+#gate.off{display:none}
+.topo{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:20px;
+  margin-bottom:36px;padding-bottom:24px;border-bottom:1px solid var(--linha);
+}
+#sair{flex:none;margin-top:6px}
+
+.card{
+  background:var(--asfalto-2);border:1px solid var(--linha);border-radius:4px;
+  padding:24px;margin-bottom:16px;
+}
+.card h2{margin-bottom:6px}
+.card p{color:var(--papel-dim);font-size:.94rem;line-height:1.5;margin:0 0 16px}
+.card a.btn{display:inline-block;text-decoration:none}
+
+.materiais-vazio{
+  border:1px dashed var(--linha);border-radius:4px;padding:28px;text-align:center;
+  color:var(--papel-dim);font-size:.9rem;
+}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="gate-box">
+    <span class="eyebrow">Área restrita</span>
+    <h1 style="font-size:1.6rem;margin:10px 0 0">Admin RENAVE.ia</h1>
+    <p>Acesso à área de materiais internos.</p>
+    <form id="gate-form" autocomplete="off">
+      <input id="gate-pass" type="password" placeholder="Senha" autocomplete="off">
+      <p id="gate-erro"></p>
+      <button type="submit" class="btn">Entrar</button>
+    </form>
+  </div>
+</div>
+
+<div id="painel">
+  <div class="wrap">
+
+    <div class="topo">
+      <div>
+        <span class="eyebrow">Admin RENAVE.ia</span>
+        <h1 style="margin-top:10px">Materiais</h1>
+        <p class="dim" style="margin:6px 0 0">Conteúdo de apoio para apresentações comerciais. Não indexado, não linkado no site público.</p>
+      </div>
+      <button id="sair" class="btn btn--linha">Sair</button>
+    </div>
+
+    <div class="card">
+      <h2>Mapa de lojistas</h2>
+      <p>Mapa interativo do RENAVE.ia — visão de lojistas por região, usado em apresentações.</p>
+      <a class="btn" href="https://renave-map-7erm2xad.manus.space/" target="_blank" rel="noopener">Abrir mapa ↗</a>
+    </div>
+
+    <div class="materiais-vazio">
+      Outros materiais (slides, PDFs, planilhas) entram aqui conforme forem adicionados.
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  // Gate simples do lado do cliente: mantem a pagina fora de visita casual e
+  // fora de indexacao, nao e protecao de dado sensivel (qualquer um ve o
+  // codigo-fonte). Nao colocar aqui nada que exija seguranca de verdade.
+  var SENHA = 'RENAVIA10';
+  var CHAVE_SESSAO = 'renave_admin_ok';
+
+  var gate = document.getElementById('gate');
+  var painel = document.getElementById('painel');
+  var form = document.getElementById('gate-form');
+  var input = document.getElementById('gate-pass');
+  var erro = document.getElementById('gate-erro');
+  var sair = document.getElementById('sair');
+
+  function liberar(){
+    gate.classList.add('off');
+    painel.classList.add('on');
+  }
+
+  try {
+    if (sessionStorage.getItem(CHAVE_SESSAO) === '1') liberar();
+  } catch (e) { /* sessionStorage indisponivel - segue pedindo senha */ }
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    if (input.value === SENHA) {
+      try { sessionStorage.setItem(CHAVE_SESSAO, '1'); } catch (e) {}
+      erro.textContent = '';
+      liberar();
+    } else {
+      erro.textContent = 'Senha incorreta.';
+      input.value = '';
+      input.focus();
+    }
+  });
+
+  sair.addEventListener('click', function(){
+    try { sessionStorage.removeItem(CHAVE_SESSAO); } catch (e) {}
+    painel.classList.remove('on');
+    gate.classList.remove('off');
+    input.value = '';
+    input.focus();
+  });
+})();
+</script>
+
+</body>
+</html>
