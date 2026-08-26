@@ -151,8 +151,11 @@ h1 .risco{
 .btn svg{width:19px;height:19px;flex:none}
 
 /* contador */
-.hero-side{display:flex;flex-direction:column;gap:clamp(24px,4vw,40px)}
-.hero-logo{width:clamp(112px,13vw,168px);height:auto;align-self:center;display:block;filter:drop-shadow(0 0 34px rgba(255,184,0,.16))}
+.hero-side{display:flex;flex-direction:column;align-self:stretch;justify-content:space-between;gap:clamp(28px,5vw,56px)}
+.hero-logo{
+  width:clamp(124px,14.5vw,190px);height:auto;align-self:flex-end;display:block;
+  filter:drop-shadow(0 0 46px rgba(255,184,0,.22));
+}
 @media(max-width:900px){.hero-logo{display:none}}
 .contador{
   border:1px solid var(--linha);background:rgba(23,26,31,.72);backdrop-filter:blur(6px);
