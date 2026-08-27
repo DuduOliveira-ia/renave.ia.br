@@ -78,10 +78,16 @@
     + '#renave-chat-send{background:#FFB800;color:#101215;border:none;border-radius:7px;'
     + 'padding:0 14px;font-weight:700;font-size:13px;cursor:pointer;flex:none}'
     + '#renave-chat-send:disabled{opacity:.5;cursor:default}'
-    + '#renave-chat-zap{display:block;text-align:center;margin-top:8px;font-size:11.5px;'
-    + 'color:#a8a49b;text-decoration:none;font-family:ui-monospace,"IBM Plex Mono",monospace;'
-    + 'letter-spacing:.03em}'
-    + '#renave-chat-zap:hover{color:#FFB800}'
+    + '#renave-chat-zap{display:flex;align-items:center;gap:8px;margin-top:10px;'
+    + 'padding:9px 11px;border:1px solid #25D366;border-radius:8px;color:#25D366;'
+    + 'text-decoration:none;font-size:13px;font-weight:600;line-height:1.3;'
+    + (reduceMotion ? '' : 'transition:background .15s ease,color .15s ease;')
+    + '}'
+    + '#renave-chat-zap svg{width:15px;height:15px;flex:none}'
+    + '#renave-chat-zap .txt{flex:1;text-align:left}'
+    + '#renave-chat-zap .arw{flex:none;opacity:.75}'
+    + '#renave-chat-zap:hover,#renave-chat-zap:focus-visible{background:#25D366;color:#101215}'
+    + '#renave-chat-zap:focus-visible{outline:2px solid #25D366;outline-offset:2px}'
     + '@media (max-width:480px){#renave-chat-panel{right:10px;left:10px;width:auto;bottom:80px;'
     + 'max-height:calc(100vh - 100px)}}';
 
@@ -107,7 +113,13 @@
         '<textarea id="renave-chat-input" rows="1" placeholder="Escreva sua dúvida..." aria-label="Sua dúvida"></textarea>' +
         '<button id="renave-chat-send" type="submit">Enviar</button>' +
       '</form>' +
-      '<a id="renave-chat-zap" target="_blank" rel="noopener">grupo de atualizações no WhatsApp →</a>' +
+      '<a id="renave-chat-zap" target="_blank" rel="noopener">' +
+        '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
+          '<path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/>' +
+        '</svg>' +
+        '<span class="txt">Grupo de atualizações no WhatsApp</span>' +
+        '<span class="arw" aria-hidden="true">→</span>' +
+      '</a>' +
     '</div>';
 
   document.body.appendChild(btn);
