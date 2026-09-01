@@ -152,6 +152,25 @@ body::after{
 
 .esticado{flex:1;display:flex;flex-direction:column;justify-content:center}
 
+/* ---------- slide 4: perguntas ---------- */
+.quadra{display:grid;grid-template-columns:1fr 1fr;gap:1.6em;margin-top:1.4em}
+.pergunta{
+  background:var(--carta);border:1px solid var(--linha);
+  padding:1.7em 1.9em;display:flex;flex-direction:column;
+}
+.pergunta h3{
+  font-size:2em;line-height:1.15;font-weight:700;color:var(--sinal);
+  font-family:var(--corpo);letter-spacing:-.01em;
+}
+.pergunta p{font-size:1.62em;line-height:1.42;color:var(--texto);margin-top:.7em}
+.pergunta p b{color:var(--branco);font-weight:600}
+.pergunta .artigo{margin-top:auto;padding-top:1em}
+.selo{
+  display:inline-block;font-family:var(--mono);font-size:1.35em;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--preto);
+  background:var(--sinal);padding:.15em .6em;margin-bottom:.55em;align-self:flex-start;
+}
+
 /* ---------- HUD ---------- */
 .hud{
   position:fixed;z-index:50;bottom:1.6vh;
@@ -320,6 +339,48 @@ body::after{
     <p class="fonte rodape">Capital de giro da fase 1 detalhado em documento à parte · demonstração ao vivo em <a href="../demo.html" target="_blank" rel="noopener">renave.ia.br/demo.html</a></p>
   </section>
 
+  <!-- ================= SLIDE 4 ================= -->
+  <section class="slide" id="s4">
+    <span class="olho">O que vão perguntar · conferido no texto oficial</span>
+    <h1 class="titulo">Quatro perguntas, quatro artigos.</h1>
+
+    <div class="esticado">
+      <div class="quadra">
+
+        <div class="pergunta">
+          <span class="selo">Homologação</span>
+          <h3>Dá para operar como integradora sem homologação?</h3>
+          <p>Não. A SENATRAN autoriza a empresa <b>e homologa o sistema</b> dela — e a loja só pode operar pelo sistema homologado da sua integradora. Não há plataforma privada trafegando dado por fora.</p>
+          <span class="artigo">Art. 3º, VI · Art. 6º, II · Art. 8º</span>
+        </div>
+
+        <div class="pergunta">
+          <span class="selo">Prazo</span>
+          <h3>Tem data limite para pedir autorização?</h3>
+          <p>Para quem entra do zero, <b>não</b>: o pedido corre a qualquer tempo no Credencia, análise em 30 dias + 30. Os relógios reais são 28/09/2026 e a ISO em 270 dias.</p>
+          <span class="artigo">Art. 10, §1º · Art. 33 · Anexo 4.1.1.2</span>
+        </div>
+
+        <div class="pergunta">
+          <span class="selo">Preço</span>
+          <h3>O preço é tabelado ou negociado com o lojista?</h3>
+          <p>Tabelado por faixa. A SENATRAN fixa <b>piso e teto</b> em ato próprio; cobrar fora dela é vedado, e venda casada também. <b>A faixa ainda não saiu</b> — o modelo de cobrança é livre dentro dela.</p>
+          <span class="artigo">Art. 32, §§ 1º a 4º</span>
+        </div>
+
+        <div class="pergunta">
+          <span class="selo">Antifraude</span>
+          <h3>O que a norma exige de antifraude?</h3>
+          <p>Prevenção a fraude e monitoramento contínuo, log imutável por 5 anos e ISO 27001. A integradora responde <b>solidariamente</b> com a loja por ação ou omissão sua.</p>
+          <span class="artigo">Art. 25, §2º · Anexo 4.1.1 e 4.2.1.5-6</span>
+        </div>
+
+      </div>
+    </div>
+
+    <p class="fonte rodape">Cada resposta conferida contra o texto oficial da Res. CONTRAN 1.026/2026 e seu Anexo · íntegra com as citações em <a href="faq.html" target="_blank" rel="noopener">renave.ia.br/WHO/faq.html</a></p>
+  </section>
+
 </div>
 
 <div class="setas" aria-hidden="true">
@@ -328,7 +389,7 @@ body::after{
 </div>
 
 <div class="hud hud--dica" id="dica"><kbd>←</kbd> <kbd>→</kbd> navega · <kbd>F</kbd> tela cheia</div>
-<div class="hud hud--contador"><b id="atual">01</b> / 03</div>
+<div class="hud hud--contador"><b id="atual">01</b> / 04</div>
 <div class="aviso">Vire o celular na horizontal</div>
 
 <script>
