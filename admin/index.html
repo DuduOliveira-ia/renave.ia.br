@@ -98,6 +98,52 @@ h2{font-size:clamp(1.3rem,3vw,1.7rem);margin:0 0 4px}
 .card p{color:var(--papel-dim);font-size:.94rem;line-height:1.5;margin:0 0 16px}
 .card a.btn{display:inline-block;text-decoration:none}
 
+/* ---- mapa do site ---- */
+.secao{
+  display:flex;align-items:baseline;gap:12px;
+  margin:38px 0 14px;padding-bottom:10px;border-bottom:1px solid var(--linha);
+}
+.secao h3{
+  font-family:var(--mono);font-size:.74rem;font-weight:600;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--sinal);margin:0;
+}
+.secao span{font-size:.82rem;color:var(--papel-dim)}
+
+.mapa{display:grid;gap:10px}
+.item{
+  display:flex;align-items:center;gap:16px;
+  background:var(--asfalto-2);border:1px solid var(--linha);border-radius:4px;
+  padding:14px 18px;text-decoration:none;color:var(--papel);
+  transition:border-color .15s,background .15s;
+}
+.item:hover{border-color:var(--sinal);background:var(--asfalto-3)}
+.item-txt{flex:1;min-width:0}
+.item b{display:block;font-size:1rem;font-weight:600;line-height:1.25}
+.item small{
+  display:block;color:var(--papel-dim);font-size:.85rem;line-height:1.4;margin-top:3px;
+}
+.item code{
+  font-family:var(--mono);font-size:.78rem;color:var(--sinal);opacity:.75;
+}
+.item .seta{flex:none;color:var(--papel-dim);font-size:1.1rem}
+.item:hover .seta{color:var(--sinal)}
+.tag{
+  flex:none;font-family:var(--mono);font-size:.62rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;padding:4px 8px;border-radius:2px;
+}
+.tag--pub{background:rgba(255,184,0,.13);color:var(--sinal)}
+.tag--off{background:rgba(255,255,255,.07);color:var(--papel-dim)}
+.tag--ext{background:rgba(255,77,61,.13);color:#ff8b7f}
+
+.destaque{border-color:var(--sinal)}
+.destaque b::after{content:' ·  amanhã';font-weight:400;color:var(--sinal);font-size:.82rem}
+
+.nota{
+  margin-top:26px;padding:16px 18px;border:1px dashed var(--linha);border-radius:4px;
+  color:var(--papel-dim);font-size:.86rem;line-height:1.55;
+}
+.nota b{color:var(--papel)}
+
 .materiais-vazio{
   border:1px dashed var(--linha);border-radius:4px;padding:28px;text-align:center;
   color:var(--papel-dim);font-size:.9rem;
@@ -125,28 +171,104 @@ h2{font-size:clamp(1.3rem,3vw,1.7rem);margin:0 0 4px}
     <div class="topo">
       <div>
         <span class="eyebrow">Admin RENAVE.ia</span>
-        <h1 style="margin-top:10px">Materiais</h1>
-        <p class="dim" style="margin:6px 0 0">Conteúdo de apoio para apresentações comerciais. Não indexado, não linkado no site público.</p>
+        <h1 style="margin-top:10px">Mapa do site</h1>
+        <p class="dim" style="margin:6px 0 0">Todas as páginas do RENAVE.ia num lugar só — as públicas, as que existem mas não aparecem, e os materiais internos.</p>
       </div>
       <button id="sair" class="btn btn--linha">Sair</button>
     </div>
 
-    <div class="card">
-      <h2>Mapa de lojistas</h2>
-      <p>Mapa interativo do RENAVE.ia — visão de lojistas por região, usado em apresentações.</p>
-      <a class="btn" href="https://renave-map-7erm2xad.manus.space/" target="_blank" rel="noopener">Abrir mapa ↗</a>
+    <div class="secao">
+      <h3>Para a reunião</h3><span>abre em tela cheia, navega com as setas</span>
+    </div>
+    <div class="mapa">
+      <a class="item destaque" href="../WHO/" target="_blank" rel="noopener">
+        <span class="tag tag--off">não listado</span>
+        <span class="item-txt"><b>Apresentação WHO</b>
+          <small>4 slides: a norma · o mercado (B3/Trillia) · a proposta de fase 1 · as perguntas esperadas — <code>/WHO/</code></small></span>
+        <span class="seta">↗</span>
+      </a>
+      <a class="item" href="../WHO/faq.html" target="_blank" rel="noopener">
+        <span class="tag tag--off">não listado</span>
+        <span class="item-txt"><b>FAQ com as citações</b>
+          <small>Homologação, prazo, preço e antifraude, com os trechos literais da Res. 1.026/2026 — <code>/WHO/faq.html</code></small></span>
+        <span class="seta">↗</span>
+      </a>
     </div>
 
-    <div class="card">
-      <h2>Apresentação WHO — integradora</h2>
-      <p>Os 4 slides da reunião com a WHO: a norma, o mercado (B3/Trillia), a proposta de fase 1 e as perguntas esperadas. Abre em tela cheia, navega com as setas.</p>
-      <a class="btn" href="../WHO/" target="_blank" rel="noopener">Abrir apresentação ↗</a>
-      <a class="btn btn--linha" href="../WHO/faq.html" target="_blank" rel="noopener" style="margin-left:10px">FAQ com as citações ↗</a>
+    <div class="secao">
+      <h3>Páginas públicas</h3><span>indexadas, qualquer um encontra pelo Google</span>
+    </div>
+    <div class="mapa">
+      <a class="item" href="../" target="_blank" rel="noopener">
+        <span class="tag tag--pub">público</span>
+        <span class="item-txt"><b>Home</b><small>Landing: o que muda, prazo e multa — <code>/</code></small></span>
+        <span class="seta">↗</span>
+      </a>
+      <a class="item" href="../guia.html" target="_blank" rel="noopener">
+        <span class="tag tag--pub">público</span>
+        <span class="item-txt"><b>Guia do RENAVE</b><small>Guia completo do credenciamento para lojas de repasse — <code>/guia.html</code></small></span>
+        <span class="seta">↗</span>
+      </a>
+      <a class="item" href="../blog/" target="_blank" rel="noopener">
+        <span class="tag tag--pub">público</span>
+        <span class="item-txt"><b>Blog — índice</b><small>Lista dos artigos — <code>/blog/</code></small></span>
+        <span class="seta">↗</span>
+      </a>
+      <a class="item" href="../blog/o-que-e-renave.html" target="_blank" rel="noopener">
+        <span class="tag tag--pub">público</span>
+        <span class="item-txt"><b>O RENAVE não é um sistema, é uma API</b><small><code>/blog/o-que-e-renave.html</code></small></span>
+        <span class="seta">↗</span>
+      </a>
+      <a class="item" href="../blog/quanto-custa-renave.html" target="_blank" rel="noopener">
+        <span class="tag tag--pub">público</span>
+        <span class="item-txt"><b>Quanto custa o RENAVE pra sua loja</b><small><code>/blog/quanto-custa-renave.html</code></small></span>
+        <span class="seta">↗</span>
+      </a>
+      <a class="item" href="../blog/erros-comuns-credenciamento.html" target="_blank" rel="noopener">
+        <span class="tag tag--pub">público</span>
+        <span class="item-txt"><b>5 erros comuns no credenciamento</b><small><code>/blog/erros-comuns-credenciamento.html</code></small></span>
+        <span class="seta">↗</span>
+      </a>
     </div>
 
-    <div class="materiais-vazio">
-      Outros materiais (slides, PDFs, planilhas) entram aqui conforme forem adicionados.
+    <div class="secao">
+      <h3>Não listadas</h3><span>fora do Google e de qualquer menu — só por link direto</span>
     </div>
+    <div class="mapa">
+      <a class="item" href="../demo.html" target="_blank" rel="noopener">
+        <span class="tag tag--off">não listado</span>
+        <span class="item-txt"><b>Demo ao vivo</b><small>Teste do RENAVE no ambiente de homologação do SERPRO — <code>/demo.html</code></small></span>
+        <span class="seta">↗</span>
+      </a>
+      <a class="item" href="./" target="_blank" rel="noopener">
+        <span class="tag tag--off">não listado</span>
+        <span class="item-txt"><b>Esta área admin</b><small>Materiais internos, atrás do gate de senha — <code>/admin/</code></small></span>
+        <span class="seta">↗</span>
+      </a>
+    </div>
+
+    <div class="secao">
+      <h3>Fora do site</h3><span>hospedados em outro lugar</span>
+    </div>
+    <div class="mapa">
+      <a class="item" href="https://renave-agente.vercel.app" target="_blank" rel="noopener">
+        <span class="tag tag--ext">externo</span>
+        <span class="item-txt"><b>Agente de atendimento</b><small>Chat de IA que responde dúvidas do lojista — <code>renave-agente.vercel.app</code></small></span>
+        <span class="seta">↗</span>
+      </a>
+      <a class="item" href="https://renave-map-7erm2xad.manus.space/" target="_blank" rel="noopener">
+        <span class="tag tag--ext">externo</span>
+        <span class="item-txt"><b>Mapa de lojistas</b><small>Visão de lojistas por região, usada em apresentação — <code>manus.space</code></small></span>
+        <span class="seta">↗</span>
+      </a>
+    </div>
+
+    <p class="nota">
+      <b>Sobre o cadeado desta área.</b> O site é hospedado no GitHub Pages, que serve arquivos
+      estáticos — não existe servidor para conferir senha. Esta tela é um quebra-molas contra
+      visita casual, não controle de acesso: quem souber o endereço de uma página não listada
+      abre direto, sem passar por aqui. Não guarde aqui nada que não possa vazar.
+    </p>
 
   </div>
 </div>
@@ -157,7 +279,9 @@ h2{font-size:clamp(1.3rem,3vw,1.7rem);margin:0 0 4px}
   // Gate simples do lado do cliente: mantem a pagina fora de visita casual e
   // fora de indexacao, nao e protecao de dado sensivel (qualquer um ve o
   // codigo-fonte). Nao colocar aqui nada que exija seguranca de verdade.
-  var SENHA = 'RENAVIA10';
+  // SHA-256 da senha. Evita que a senha em si vaze no view-source (ela pode ser
+  // reusada em outro lugar); nao protege o conteudo — ver a nota no painel.
+  var SENHA_HASH = '253322552fd2dff3e6e7e422efb9861952ab9b09ba3f83215a0bc6e6d289db41';
   var CHAVE_SESSAO = 'renave_admin_ok';
 
   var gate = document.getElementById('gate');
@@ -176,17 +300,38 @@ h2{font-size:clamp(1.3rem,3vw,1.7rem);margin:0 0 4px}
     if (sessionStorage.getItem(CHAVE_SESSAO) === '1') liberar();
   } catch (e) { /* sessionStorage indisponivel - segue pedindo senha */ }
 
+  function sha256(texto){
+    var bytes = new TextEncoder().encode(texto);
+    return crypto.subtle.digest('SHA-256', bytes).then(function(buf){
+      return [].map.call(new Uint8Array(buf), function(b){
+        return b.toString(16).padStart(2, '0');
+      }).join('');
+    });
+  }
+
   form.addEventListener('submit', function(ev){
     ev.preventDefault();
-    if (input.value === SENHA) {
-      try { sessionStorage.setItem(CHAVE_SESSAO, '1'); } catch (e) {}
-      erro.textContent = '';
-      liberar();
-    } else {
-      erro.textContent = 'Senha incorreta.';
-      input.value = '';
-      input.focus();
+
+    // crypto.subtle so existe em contexto seguro (https). Abrindo o arquivo
+    // direto do disco (file://) nao da - avisa em vez de falhar calado.
+    if (!(window.crypto && crypto.subtle)) {
+      erro.textContent = 'Abra pelo site (https), nao pelo arquivo local.';
+      return;
     }
+
+    sha256(input.value).then(function(hash){
+      if (hash === SENHA_HASH) {
+        try { sessionStorage.setItem(CHAVE_SESSAO, '1'); } catch (e) {}
+        erro.textContent = '';
+        liberar();
+      } else {
+        erro.textContent = 'Senha incorreta.';
+        input.value = '';
+        input.focus();
+      }
+    }).catch(function(){
+      erro.textContent = 'Nao foi possivel validar a senha neste navegador.';
+    });
   });
 
   sair.addEventListener('click', function(){
